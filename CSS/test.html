@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>垂直居中</title>
+	<style type="text/css">
+		.box{
+			height: 100px;
+			border: 1px solid #ccc;
+			margin: 30px auto;
+		}
+		.item{
+			background: #ccc;
+		}
+		.box-1{
+			text-align: center;
+			line-height: 100px;
+		}
+		.box-2,.box-3,.box-4{
+			position: relative;
+		}
+		.box-2 .item{
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			margin-left: -100px;
+			margin-top: -25px;
+			width: 200px;
+			height: 50px;
+		}
+		.box-3 .item{
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			width: 200px;
+			height: 50px;
+			transform: translate(-50%,-50%);
+
+		}
+		.box-4 .item{
+			position: absolute;
+			left: 0;
+			top: 0;
+			bottom: 0;
+			right: 0;
+			width: 200px;
+			height: 50px;
+			margin: auto;
+
+		}
+	</style>
+</head>
+<body>
+
+
+
+	<h1>垂直居中</h1>
+
+	<!-- 行内元素 -->
+	<div class="box box-1">
+		<span>行内元素垂直居中</span>
+	</div>
+	<!-- 绝对布局 -->
+	<div class="box box-2">
+		<div class="item">定位元素垂直居中</div>
+	</div>
+	<!-- 绝对布局 -->
+	<div class="box box-3">
+		<div class="item">定位元素垂直居中</div>
+	</div>
+	<!-- 绝对布局 -->
+	<div class="box box-4">
+		<div class="item">定位元素垂直居中</div>
+	</div>
+
+</body>
+</html>

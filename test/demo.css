@@ -1,0 +1,21 @@
+body,html{
+  height:100%;
+  padding: 0;
+  margin: 0;
+}
+.container{
+  position: relative;
+  overflow: auto;
+}
+.container img{
+  width: 100%;
+}
+.footer-btn{
+  cursor: pointer;
+  position: absolute;
+  bottom: 8%;
+  left: 18%;
+}
+.footer-btn img{
+  width: 100%;
+}
