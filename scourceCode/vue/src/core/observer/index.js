@@ -139,9 +139,10 @@ export function defineReactive (
   customSetter?: ?Function,
   shallow?: boolean
 ) {
-  const dep = new Dep()
+  const dep = new Dep() //创建订阅对象
 
-  const property = Object.getOwnPropertyDescriptor(obj, key)
+  const property = Object.getOwnPropertyDescriptor(obj, key) //获取obj对象的key属性的描述
+  //属性的描述特性里面如果configurable为false则属性的任何修改将无效
   if (property && property.configurable === false) {
     return
   }
@@ -152,13 +153,14 @@ export function defineReactive (
   if ((!getter || setter) && arguments.length === 2) {
     val = obj[key]
   }
-
+  //创建一个观察者对象
   let childOb = !shallow && observe(val)
   Object.defineProperty(obj, key, {
-    enumerable: true,
-    configurable: true,
+    enumerable: true,//可枚举
+    configurable: true,///可修改
     get: function reactiveGetter () {
-      const value = getter ? getter.call(obj) : val
+      const value = getter ? getter.call(obj) : val // 先调用默认的get方法取值
+      //这里就劫持了get方法，也是作者一个巧妙设计，在创建watcher实例的时候，通过调用对象的get方法往订阅器dep上添加这个创建的watcher实例
       if (Dep.target) {
         dep.depend()
         if (childOb) {

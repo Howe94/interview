@@ -23,10 +23,10 @@ const methodsToPatch = [
  */
 methodsToPatch.forEach(function (method) {
   // cache original method
-  const original = arrayProto[method]
+  const original = arrayProto[method] //缓存元素数组原型
   def(arrayMethods, method, function mutator (...args) {
-    const result = original.apply(this, args)
-    const ob = this.__ob__
+    const result = original.apply(this, args) //原始方法求值
+    const ob = this.__ob__  //这里的this.__obj__ 指向的是数据的Observer
     let inserted
     switch (method) {
       case 'push':
