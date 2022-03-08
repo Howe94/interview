@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        body,html,*{
+            padding: 0;
+            margin: 0;
+        }
+      div {
+        height: 500px;
+      }
+
+      .aside {
+        width: 300px;
+        float: left;
+        background: yellow;
+      }
+
+      .main {
+        background: aqua;
+        overflow: hidden;
+      }
+
+      .left {
+      width: 100%;
+      float: left;
+      background: #f00;
+      margin-right: -200px;
+    }
+
+    .right {
+      float: left;
+      width: 200px;
+      background: #0f0;
+    }
+    </style>
+  </head>
+  <body>
+    <div class="aside"></div>
+    <div class="main"></div>
+    <div class="left"><p>hello</p></div>
+    <div class="right"><p>world</p></div>
+  </body>
+</html>
